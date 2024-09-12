@@ -19,7 +19,7 @@ h1 {
 }
 button {
   background-color: #3498db;
-  color: white;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -34,4 +34,22 @@ a {
   text-decoration: none;
   color: #3498db;
   font-weight: 600;
+}
+div {
+  width: 200px;
+  height: 200px;
+  background-color: transparent;
+  border: 10px solid #3498db;
+  border-top: 10px solid transparent;
+  border-radius: 100%;
+  animation: loader 2s linear infinite;
+}
+
+@keyframes loader {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

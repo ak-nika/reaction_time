@@ -6,15 +6,16 @@ const h1 = document.querySelector("h1");
 const body = document.querySelector("body");
 const p = document.querySelector("p");
 const a = document.querySelector("a");
+const loader = document.getElementById("loader");
 
+loader.style.display = "none";
 stopBtn.style.display = "none";
 a.style.display = "none";
 const start = () => {
   h1.innerText = "When the background colour changes, click the button";
   p.style.display = "none";
   startBtn.style.display = "none";
-  stopBtn.style.display = "inline-block";
-  stopBtn.disabled = true;
+  loader.style.display = "block";
 
   const randomTime = Math.floor(Math.random() * 4000) + 2000;
 
@@ -22,14 +23,16 @@ const start = () => {
     const randomColor = colours[Math.floor(Math.random() * colours.length)];
     const start = new Date().getMilliseconds();
 
+    loader.style.display = "none";
+    stopBtn.style.display = "inline-block";
     body.style.backgroundColor = randomColor;
     stopBtn.disabled = false;
 
     stopBtn.addEventListener("click", () => {
       const stop = new Date().getMilliseconds();
-      const time = stop - start;
+      const time = start - stop;
 
-      h1.innerText = `Your reaction time is ${time / 1000}s`;
+      h1.innerText = `Your reaction time is ${time / 100}s`;
 
       stopBtn.style.display = "none";
       a.style.display = "block";
